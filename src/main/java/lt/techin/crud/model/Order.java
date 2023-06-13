@@ -26,7 +26,7 @@ public class Order {
     private String customerName;
     @Email
     private String customerEmail;
-//    @NumberFormat()
+    @NotBlank
     private String customerPhoneNumber;
     @NotBlank
     private BigDecimal totalAmount;
@@ -46,6 +46,7 @@ public class Order {
     private String createdBy;
     @LastModifiedBy
     private String modifiedBy;
+
     @PrePersist
     public void prePersist() {
         createdDate = LocalDateTime.now();
@@ -53,6 +54,7 @@ public class Order {
         createdBy = "FoodCourt app";
         modifiedBy = "FoodCourt app";
     }
+
     @PreUpdate
     public void preUpdate() {
         modifiedDate = LocalDateTime.now();
