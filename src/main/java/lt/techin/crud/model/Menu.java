@@ -19,6 +19,8 @@ public class Menu {
     public Long id;
     @NotBlank
     public String name;
+
+    public String description;
     @OneToMany(mappedBy = "menu")
     public Set<Meal> meals;
     @CreatedDate
@@ -70,13 +72,21 @@ public class Menu {
         this.name = name;
     }
 
-//    public Set<Meal> getMenuMeals() {
-//        return menuMeals;
-//    }
-//
-//    public void setMenuMeals(Set<Meal> menuMeals) {
-//        this.menuMeals = menuMeals;
-//    }
+    public Set<Meal> getMenu() {
+        return meals;
+    }
+
+    public void setMenu(Set<Meal> menuMeals) {
+        this.meals = menuMeals;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public LocalDateTime getCreatedDate() {
         return createdDate;
@@ -115,19 +125,21 @@ public class Menu {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Menu menu = (Menu) o;
-        return Objects.equals(id, menu.id) && Objects.equals(name, menu.name) && Objects.equals(meals, menu.meals) && Objects.equals(createdDate, menu.createdDate) && Objects.equals(modifiedDate, menu.modifiedDate) && Objects.equals(createdBy, menu.createdBy) && Objects.equals(modifiedBy, menu.modifiedBy);
+        return Objects.equals(id, menu.id) && Objects.equals(name, menu.name) && Objects.equals(description, menu.description) && Objects.equals(meals, menu.meals) && Objects.equals(createdDate, menu.createdDate) && Objects.equals(modifiedDate, menu.modifiedDate) && Objects.equals(createdBy, menu.createdBy) && Objects.equals(modifiedBy, menu.modifiedBy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, meals, createdDate, modifiedDate, createdBy, modifiedBy);
+        return Objects.hash(id, name, description, meals, createdDate, modifiedDate, createdBy, modifiedBy);
     }
 
     @Override
-    public String toString() {
+    public String
+    toString() {
         return "Menu{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", meals=" + meals +
                 ", createdDate=" + createdDate +
                 ", modifiedDate=" + modifiedDate +

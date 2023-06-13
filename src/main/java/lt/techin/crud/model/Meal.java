@@ -33,6 +33,8 @@ public class Meal {
     @NotBlank
     @Size(min = 1, max = 50, message = "Kitchen cannot manage to cook more than 50 dishes")
     private Long amount;
+
+    private String imageURL;
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdDate;
@@ -61,6 +63,14 @@ public class Meal {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public Order getOrder() {
@@ -148,16 +158,17 @@ public class Meal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Meal meal = (Meal) o;
-        return Objects.equals(id, meal.id) && Objects.equals(name, meal.name) && Objects.equals(description, meal.description) && Objects.equals(price, meal.price) && Objects.equals(menu, meal.menu) && Objects.equals(order, meal.order) && Objects.equals(amount, meal.amount) && Objects.equals(createdDate, meal.createdDate) && Objects.equals(modifiedDate, meal.modifiedDate) && Objects.equals(createdBy, meal.createdBy) && Objects.equals(modifiedBy, meal.modifiedBy);
+        return Objects.equals(id, meal.id) && Objects.equals(name, meal.name) && Objects.equals(description, meal.description) && Objects.equals(price, meal.price) && Objects.equals(menu, meal.menu) && Objects.equals(order, meal.order) && Objects.equals(amount, meal.amount) && Objects.equals(imageURL, meal.imageURL) && Objects.equals(createdDate, meal.createdDate) && Objects.equals(modifiedDate, meal.modifiedDate) && Objects.equals(createdBy, meal.createdBy) && Objects.equals(modifiedBy, meal.modifiedBy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, menu, order, amount, createdDate, modifiedDate, createdBy, modifiedBy);
+        return Objects.hash(id, name, description, price, menu, order, amount, imageURL, createdDate, modifiedDate, createdBy, modifiedBy);
     }
 
     @Override
-    public String toString() {
+    public String
+    toString() {
         return "Meal{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -166,6 +177,7 @@ public class Meal {
                 ", menu=" + menu +
                 ", order=" + order +
                 ", amount=" + amount +
+                ", imageURL='" + imageURL + '\'' +
                 ", createdDate=" + createdDate +
                 ", modifiedDate=" + modifiedDate +
                 ", createdBy='" + createdBy + '\'' +
