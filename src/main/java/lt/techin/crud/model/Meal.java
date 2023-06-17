@@ -35,10 +35,12 @@ public class Meal {
     @Size(min = 1, max = 50, message = "Kitchen cannot manage to cook more than 50 dishes")
     private Long amount;
     private String imageURL;
+    @Transient
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdDate;
     @LastModifiedDate
+    @Transient
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime modifiedDate;
     @CreatedBy

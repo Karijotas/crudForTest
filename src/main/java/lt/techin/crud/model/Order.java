@@ -37,9 +37,11 @@ public class Order {
     @NotBlank
     private String trackingNumber;
     @CreatedDate
+    @Transient
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdDate;
     @LastModifiedDate
+    @Transient
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime modifiedDate;
     @CreatedBy

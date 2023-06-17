@@ -25,9 +25,11 @@ public class Menu {
     @OneToMany(mappedBy = "menu")
     public Set<Meal> meals;
     @CreatedDate
+    @Transient
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdDate;
     @LastModifiedDate
+    @Transient
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime modifiedDate;
     @CreatedBy

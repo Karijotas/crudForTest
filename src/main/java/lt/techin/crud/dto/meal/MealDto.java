@@ -1,16 +1,17 @@
 package lt.techin.crud.dto.meal;
 
-import lt.techin.crud.dto.menu.MenuDto;
-import lt.techin.crud.dto.orders.OrderDto;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-
+@Data
+@NoArgsConstructor
 public class MealDto {
 
     private String name;
     private String description;
     private BigDecimal price;
-    private MenuDto menu;
-    private OrderDto order;
+    private String menu;
+    private Long order;
 
 }
