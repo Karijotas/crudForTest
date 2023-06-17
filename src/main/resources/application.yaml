@@ -9,7 +9,6 @@ spring:
     date-format: "dd-MM-yyyy HH:mm:ss"
   flyway:
     enabled: true
-
   jpa:
     hibernate:
       ddl-auto: none

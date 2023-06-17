@@ -22,6 +22,8 @@ CREATE TABLE meal
     modified_by VARCHAR(255),
     CONSTRAINT pk_meal PRIMARY KEY (id)
 );
+ALTER TABLE meal
+    ADD CONSTRAINT FK_MEAL_ON_MENU FOREIGN KEY (menu_id) REFERENCES menu (id);
 
 CREATE TABLE "order"
 (
@@ -38,8 +40,6 @@ CREATE TABLE "order"
     CONSTRAINT pk_order PRIMARY KEY (id)
 );
 
-ALTER TABLE meal
-    ADD CONSTRAINT FK_MEAL_ON_MENU FOREIGN KEY (menu_id) REFERENCES menu (id);
 
 ALTER TABLE meal
     ADD CONSTRAINT FK_MEAL_ON_ORDER FOREIGN KEY (order_id) REFERENCES "order" (id);
