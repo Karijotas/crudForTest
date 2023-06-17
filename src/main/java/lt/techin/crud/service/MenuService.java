@@ -1,5 +1,6 @@
 package lt.techin.crud.service;
 
+import lombok.extern.slf4j.Slf4j;
 import lt.techin.crud.dao.MealRepository;
 import lt.techin.crud.dao.MenuRepository;
 import lt.techin.crud.dao.OrderRepository;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@Slf4j
 public class MenuService {
 
     private final MenuRepository menuRepository;

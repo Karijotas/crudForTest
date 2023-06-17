@@ -1,6 +1,7 @@
 package lt.techin.crud.dto.menu;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lt.techin.crud.dto.meal.MealDto;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class MenuDto {
 
     public String name;

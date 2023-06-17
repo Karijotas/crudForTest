@@ -1,4 +1,13 @@
 package lt.techin.crud.dto.meal;
 
-public class MealEntityDto {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MealEntityDto extends MealDto{
+    private Long id;
+
 }
