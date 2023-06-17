@@ -1,11 +1,11 @@
-package lt.techin.crud.dto.mapper;
+package lt.techin.crud.model.dto.mapper;
 
-import lt.techin.crud.dto.menu.MenuDto;
-import lt.techin.crud.dto.menu.MenuEntityDto;
+import lt.techin.crud.model.dto.menu.MenuDto;
+import lt.techin.crud.model.dto.menu.MenuEntityDto;
 import lt.techin.crud.model.Menu;
 
-import static lt.techin.crud.dto.mapper.MealMapper.toMealSet;
-import static lt.techin.crud.dto.mapper.MealMapper.toMealSetDto;
+import static lt.techin.crud.model.dto.mapper.MealMapper.toMealSet;
+import static lt.techin.crud.model.dto.mapper.MealMapper.toMealSetDto;
 
 public class MenuMapper {
 

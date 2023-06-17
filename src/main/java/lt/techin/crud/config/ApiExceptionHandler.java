@@ -1,9 +1,9 @@
 package lt.techin.crud.config;
 
 import lombok.extern.slf4j.Slf4j;
-import lt.techin.crud.dto.ErrorDto;
-import lt.techin.crud.dto.ErrorFieldDto;
-import lt.techin.crud.exception.CustomValidationException;
+import lt.techin.crud.model.dto.error.ErrorDto;
+import lt.techin.crud.model.dto.error.ErrorFieldDto;
+import lt.techin.crud.config.exception.CustomValidationException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

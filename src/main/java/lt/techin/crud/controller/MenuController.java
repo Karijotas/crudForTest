@@ -1,8 +1,8 @@
 package lt.techin.crud.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import lt.techin.crud.dto.menu.MenuDto;
-import lt.techin.crud.dto.menu.MenuEntityDto;
+import lt.techin.crud.model.dto.menu.MenuDto;
+import lt.techin.crud.model.dto.menu.MenuEntityDto;
 import lt.techin.crud.model.Menu;
 import lt.techin.crud.service.MenuService;
 import org.springframework.http.MediaType;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static lt.techin.crud.dto.mapper.MenuMapper.toMenu;
-import static lt.techin.crud.dto.mapper.MenuMapper.toMenuEntityDto;
+import static lt.techin.crud.model.dto.mapper.MenuMapper.toMenu;
+import static lt.techin.crud.model.dto.mapper.MenuMapper.toMenuEntityDto;
 import static org.springframework.http.ResponseEntity.ok;
 
 @Controller
@@ -61,9 +61,15 @@ public class MenuController {
         log.info("Trying to delete menu by id: {}", menuId);
 
         if (menuService.deleteById(menuId)) {
-          return ResponseEntity.noContent().build();
+            return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.noContent().build();
         }
+    }
+
+    @PatchMapping("/{menuId}/add/{mealId]")
+    public ResponseEntity<Menu> addMealToMenu(@PathVariable Long mealId, @PathVariable Long menuId) {
+        log.info("Trying to add a meal {} to menu {}", mealId, menuId);
+        return ok(menuService.addMealToMenu(mealId, menuId));
     }
 }

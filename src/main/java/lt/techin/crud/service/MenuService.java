@@ -1,10 +1,10 @@
 package lt.techin.crud.service;
 
 import lombok.extern.slf4j.Slf4j;
+import lt.techin.crud.config.exception.CustomValidationException;
 import lt.techin.crud.dao.MealRepository;
 import lt.techin.crud.dao.MenuRepository;
 import lt.techin.crud.dao.OrderRepository;
-import lt.techin.crud.exception.CustomValidationException;
 import lt.techin.crud.model.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -84,5 +84,16 @@ public class MenuService {
         } catch (EmptyResultDataAccessException e) {
             return false;
         }
+    }
+
+    public Menu addMealToMenu(Long mealId, Long menuId){
+        var meal = mealRepository.findById(mealId).get();
+        var menu = menuRepository.findById(menuId).get();
+        var meals = menu.getMeals();
+
+        meals.add(meal);
+        menu.setMeals(meals);
+
+        return menu;
     }
 }

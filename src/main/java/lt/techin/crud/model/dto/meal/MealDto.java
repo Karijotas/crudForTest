@@ -1,4 +1,4 @@
-package lt.techin.crud.dto.meal;
+package lt.techin.crud.model.dto.meal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

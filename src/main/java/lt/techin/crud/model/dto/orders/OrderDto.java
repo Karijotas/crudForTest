@@ -1,9 +1,9 @@
-package lt.techin.crud.dto.orders;
+package lt.techin.crud.model.dto.orders;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lt.techin.crud.dto.meal.MealDto;
+import lt.techin.crud.model.dto.meal.MealDto;
 
 import java.math.BigDecimal;
 import java.util.Set;

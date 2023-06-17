@@ -1,4 +1,4 @@
-package lt.techin.crud.exception;
+package lt.techin.crud.config.exception;
 
 public class CustomValidationException extends RuntimeException{
     private String field;
