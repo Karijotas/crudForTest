@@ -5,6 +5,7 @@ import lt.techin.crud.config.exception.CustomValidationException;
 import lt.techin.crud.dao.MealRepository;
 import lt.techin.crud.dao.MenuRepository;
 import lt.techin.crud.dao.OrderRepository;
+import lt.techin.crud.model.Meal;
 import lt.techin.crud.model.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -77,7 +78,7 @@ public class MenuService {
         return menuRepository.save(existingMenu);
     }
 
-    public Boolean deleteById(Long id){
+    public Boolean deleteById(Long id) {
         try {
             menuRepository.deleteById(id);
             return true;
@@ -86,11 +87,41 @@ public class MenuService {
         }
     }
 
-    public Menu addMealToMenu(Long mealId, Long menuId){
-        var meal = mealRepository.findById(mealId).get();
-        var menu = menuRepository.findById(menuId).get();
+    public Menu addMealToMenu(Long mealId, Long menuId) {
+        var meal = mealRepository.findById(mealId)
+                .orElseThrow(() -> new CustomValidationException("Meal doesn't exist", "id", "Meal not found", mealId.toString()));
+        var menu = menuRepository.findById(menuId)
+                .orElseThrow(() -> new CustomValidationException("Menu doesn't exist", "id", "Menu not found", menuId.toString()));
+
         var meals = menu.getMeals();
 
+        meals.add(meal);
+        menu.setMeals(meals);
+
+        return menu;
+    }
+
+    public Menu removeMealFromMenu(Long mealId, Long menuId) {
+        var meal = mealRepository.findById(mealId)
+                .orElseThrow(() -> new CustomValidationException("Meal doesn't exist", "id", "Meal not found", mealId.toString()));
+        var menu = menuRepository.findById(menuId)
+                .orElseThrow(() -> new CustomValidationException("Menu doesn't exist", "id", "Menu not found", menuId.toString()));
+        var meals = menu.getMeals();
+
+        meals.remove(meal);
+        menu.setMeals(meals);
+
+        return menu;
+    }
+
+    public Menu updateMealInMenu(Long mealId, Meal meal, Long menuId) {
+        var existingMeal = mealRepository.findById(mealId)
+                .orElseThrow(() -> new CustomValidationException("Meal doesn't exist", "id", "Meal not found", mealId.toString()));
+        var menu = menuRepository.findById(menuId)
+                .orElseThrow(() -> new CustomValidationException("Menu doesn't exist", "id", "Menu not found", menuId.toString()));
+        var meals = menu.getMeals();
+
+        meals.removeIf(meal1 -> meal1.equals(existingMeal));
         meals.add(meal);
         menu.setMeals(meals);
 

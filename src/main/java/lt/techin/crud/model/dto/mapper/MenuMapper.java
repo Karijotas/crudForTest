@@ -12,6 +12,7 @@ public class MenuMapper {
     public static MenuEntityDto toMenuEntityDto(Menu menu) {
         var menuEntity = new MenuEntityDto();
 
+        menuEntity.setId(menu.getId());
         menuEntity.setName(menu.getName());
         menuEntity.setDescription(menu.getDescription());
         menuEntity.setMeals(toMealSetDto(menu.getMeals()));

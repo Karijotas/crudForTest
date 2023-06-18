@@ -45,6 +45,7 @@ public class MealMapper {
     public static MealEntityDto toMealEntityDto(Meal meal) {
         var mealEntityDto = new MealEntityDto();
 
+        mealEntityDto.setId(meal.getId());
         mealEntityDto.setName(meal.getName());
         mealEntityDto.setDescription(meal.getDescription());
         mealEntityDto.setPrice(meal.getPrice());
