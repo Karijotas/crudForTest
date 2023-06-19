@@ -1,9 +1,9 @@
-package lt.techin.crud.model.dto.mapper;
+package lt.techin.crud.api.dto.mapper;
 
 import lt.techin.crud.dao.MenuRepository;
 import lt.techin.crud.dao.OrderRepository;
-import lt.techin.crud.model.dto.meal.MealDto;
-import lt.techin.crud.model.dto.meal.MealEntityDto;
+import lt.techin.crud.api.dto.meal.MealDto;
+import lt.techin.crud.api.dto.meal.MealEntityDto;
 import lt.techin.crud.model.Meal;
 
 import java.util.HashSet;

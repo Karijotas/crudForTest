@@ -1,11 +1,8 @@
-package lt.techin.crud.model.dto.mapper;
+package lt.techin.crud.api.dto.mapper;
 
+import lt.techin.crud.api.dto.orders.OrderDto;
 import lt.techin.crud.model.Order;
-import lt.techin.crud.model.dto.orders.OrderDto;
-import lt.techin.crud.model.dto.orders.OrderEntityDto;
-
-import static lt.techin.crud.model.dto.mapper.MealMapper.toMealSet;
-import static lt.techin.crud.model.dto.mapper.MealMapper.toMealSetDto;
+import lt.techin.crud.api.dto.orders.OrderEntityDto;
 
 public class OrderMapper {
 
@@ -13,7 +10,7 @@ public class OrderMapper {
         var orderEntityDto = new OrderEntityDto();
 
         orderEntityDto.setId(order.getId());
-        orderEntityDto.setMeals(toMealSetDto(order.getMeals()));
+        orderEntityDto.setMeals(MealMapper.toMealSetDto(order.getMeals()));
         orderEntityDto.setCustomerName(order.getCustomerName());
         orderEntityDto.setCustomerEmail(order.getCustomerEmail());
         orderEntityDto.setCustomerPhoneNumber(order.getCustomerPhoneNumber());
@@ -28,7 +25,7 @@ public class OrderMapper {
     public static Order toOrder(OrderEntityDto orderEntityDto) {
         var order = new Order();
 
-        order.setMeals(toMealSet(orderEntityDto.getMeals()));
+        order.setMeals(MealMapper.toMealSet(orderEntityDto.getMeals()));
         order.setCustomerName(orderEntityDto.getCustomerName());
         order.setCustomerEmail(orderEntityDto.getCustomerEmail());
         order.setCustomerPhoneNumber(orderEntityDto.getCustomerPhoneNumber());
@@ -43,7 +40,7 @@ public class OrderMapper {
     public static Order toOrder(OrderDto orderDto) {
         var order = new Order();
 
-        order.setMeals(toMealSet(orderDto.getMeals()));
+        order.setMeals(MealMapper.toMealSet(orderDto.getMeals()));
         order.setCustomerName(orderDto.getCustomerName());
         order.setCustomerEmail(orderDto.getCustomerEmail());
         order.setCustomerPhoneNumber(orderDto.getCustomerPhoneNumber());

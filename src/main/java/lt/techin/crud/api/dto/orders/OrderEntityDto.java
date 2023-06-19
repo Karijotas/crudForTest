@@ -1,4 +1,4 @@
-package lt.techin.crud.model.dto.orders;
+package lt.techin.crud.api.dto.orders;
 
 
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package lt.techin.crud.model.dto.error;
+package lt.techin.crud.api.dto.error;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
-package lt.techin.crud.controller;
+package lt.techin.crud.api;
 
 import lombok.extern.slf4j.Slf4j;
-import lt.techin.crud.model.dto.menu.MenuDto;
-import lt.techin.crud.model.dto.menu.MenuEntityDto;
+import lt.techin.crud.api.dto.menu.MenuDto;
+import lt.techin.crud.api.dto.menu.MenuEntityDto;
 import lt.techin.crud.model.Menu;
 import lt.techin.crud.service.MenuService;
 import org.springframework.http.MediaType;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static lt.techin.crud.model.dto.mapper.MenuMapper.toMenu;
-import static lt.techin.crud.model.dto.mapper.MenuMapper.toMenuEntityDto;
+import static lt.techin.crud.api.dto.mapper.MenuMapper.toMenu;
+import static lt.techin.crud.api.dto.mapper.MenuMapper.toMenuEntityDto;
 import static org.springframework.http.ResponseEntity.ok;
 
 @Controller

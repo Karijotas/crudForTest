@@ -1,11 +1,8 @@
-package lt.techin.crud.model.dto.mapper;
+package lt.techin.crud.api.dto.mapper;
 
-import lt.techin.crud.model.dto.menu.MenuDto;
-import lt.techin.crud.model.dto.menu.MenuEntityDto;
+import lt.techin.crud.api.dto.menu.MenuDto;
+import lt.techin.crud.api.dto.menu.MenuEntityDto;
 import lt.techin.crud.model.Menu;
-
-import static lt.techin.crud.model.dto.mapper.MealMapper.toMealSet;
-import static lt.techin.crud.model.dto.mapper.MealMapper.toMealSetDto;
 
 public class MenuMapper {
 
@@ -15,7 +12,7 @@ public class MenuMapper {
         menuEntity.setId(menu.getId());
         menuEntity.setName(menu.getName());
         menuEntity.setDescription(menu.getDescription());
-        menuEntity.setMeals(toMealSetDto(menu.getMeals()));
+        menuEntity.setMeals(MealMapper.toMealSetDto(menu.getMeals()));
 
         return menuEntity;
 
@@ -26,7 +23,7 @@ public class MenuMapper {
 
         menu.setName(menuEntityDto.getName());
         menu.setDescription(menuEntityDto.getDescription());
-        menu.setMeals(toMealSet(menuEntityDto.getMeals()));
+        menu.setMeals(MealMapper.toMealSet(menuEntityDto.getMeals()));
 
         return menu;
     }
@@ -37,7 +34,7 @@ public class MenuMapper {
 
         menu.setName(menuDto.getName());
         menu.setDescription(menuDto.getDescription());
-        menu.setMeals(toMealSet(menuDto.getMeals()));
+        menu.setMeals(MealMapper.toMealSet(menuDto.getMeals()));
 
         return menu;
     }

@@ -1,11 +1,13 @@
-package lt.techin.crud.model.dto.menu;
+package lt.techin.crud.api.dto.meal;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class MenuEntityDto extends MenuDto {
+@NoArgsConstructor
+public class MealEntityDto extends MealDto{
     private Long id;
+
 }

@@ -1,10 +1,10 @@
-package lt.techin.crud.model.dto.menu;
+package lt.techin.crud.api.dto.menu;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lt.techin.crud.model.dto.meal.MealDto;
+import lt.techin.crud.api.dto.meal.MealDto;
 
 import java.time.LocalDateTime;
 import java.util.Set;
