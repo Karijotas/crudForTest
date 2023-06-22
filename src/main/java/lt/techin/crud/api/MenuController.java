@@ -24,21 +24,21 @@ import static org.springframework.http.ResponseEntity.ok;
 @Slf4j
 public class MenuController {
 
-    private final MenuService menuService;
+    private final MenuService service;
 
     public MenuController(MenuService menuService) {
-        this.menuService = menuService;
+        this.service = menuService;
     }
 
     @GetMapping
     @ResponseBody
-    public List<Menu> getAllMenus() {
-        return menuService.getAll();
+    public List<Menu> getAll() {
+        return service.getAll();
     }
 
     @GetMapping(value = "/{menuId}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<MenuEntityDto> getMenu(@PathVariable Long menuId) {
-        var menuOptional = menuService.getById(menuId);
+    public ResponseEntity<MenuEntityDto> getIndividual(@PathVariable Long menuId) {
+        var menuOptional = service.getById(menuId);
 
         return menuOptional
                 .map(menu -> ok(toMenuEntityDto(menu)))
@@ -46,21 +46,21 @@ public class MenuController {
     }
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Menu> createMenu(@Valid @RequestBody MenuEntityDto menuEntityDto) {
-        return ok(menuService.create(toMenu(menuEntityDto)));
+    public ResponseEntity<Menu> create(@Valid @RequestBody MenuEntityDto menuEntityDto) {
+        return ok(service.create(toMenu(menuEntityDto)));
     }
 
     @PatchMapping("/{menuId}")
-    public ResponseEntity<Menu> updateMenu(@PathVariable Long menuId, @Valid @RequestBody MenuDto menuDto) {
+    public ResponseEntity<Menu> update(@PathVariable Long menuId, @Valid @RequestBody MenuDto menuDto) {
         log.info("Trying to update menu by id: {}", menuId);
-        return ok(menuService.update(menuId, toMenu(menuDto)));
+        return ok(service.update(menuId, toMenu(menuDto)));
     }
 
     @DeleteMapping("/delete/{menuId}")
-    public ResponseEntity<Void> deleteMenu(@PathVariable Long menuId) {
+    public ResponseEntity<Void> delete(@PathVariable Long menuId) {
         log.info("Trying to delete menu by id: {}", menuId);
 
-        if (menuService.deleteById(menuId)) {
+        if (service.deleteById(menuId)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.noContent().build();
@@ -70,6 +70,6 @@ public class MenuController {
     @PatchMapping("/{menuId}/add/{mealId]")
     public ResponseEntity<Menu> addMealToMenu(@PathVariable Long mealId, @PathVariable Long menuId) {
         log.info("Trying to add a meal {} to menu {}", mealId, menuId);
-        return ok(menuService.addMealToMenu(mealId, menuId));
+        return ok(service.addMealToMenu(mealId, menuId));
     }
 }
